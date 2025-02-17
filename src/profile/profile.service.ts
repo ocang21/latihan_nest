@@ -5,6 +5,18 @@ import prisma from 'src/prisma';
 
 @Injectable()
 export class ProfileService {
+
+    async searchByName(search: string) {
+        return prisma.user.findMany({
+          where: {
+            username: {
+              contains: search,
+              mode: 'insensitive', // Optional: to make the search case-insensitive
+            },
+          },
+        });
+      }
+
     async uploudFile(file: Express.Multer.File, user_id: number) {
         const user = await prisma.user.findFirst({
             where: {

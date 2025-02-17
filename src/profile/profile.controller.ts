@@ -6,6 +6,7 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 import { UserDecorator } from 'src/user.decorator';
 import { User } from '@prisma/client';
 import { Response } from 'express';
+import { loginuserDTO } from 'src/dto/login-user.dto';
 
 @Controller('profile')
 export class ProfileController {
@@ -22,6 +23,13 @@ export class ProfileController {
     @Query("search") search : String
   ) {
     return search
+  }
+
+  @Get("searchMahasiswa")
+  async getNameMahasiswa(
+    @Query("mahasiswa") search : string
+  ) {
+    return this.profileService.searchByName(search);
   }
 
   @Get("/:id")
