@@ -14,7 +14,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('LATIHAN NESTJS KELAS 5B')
-    .setDescription('Muh.Dirham rahim - 105841105622')
+    .setDescription('AHMAD FAUZAN - 105841107522')
     .setVersion('0.1')
     .addTag('LATIHAN-1')
     .addBearerAuth()
